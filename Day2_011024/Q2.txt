@@ -1,0 +1,36 @@
+Question 2 : Rectangle pattern 
+For example length : 5 width : 4
+*****
+*   *
+*   *
+*****
+
+
+Console.WriteLine("Enter length (horizontal) of rectangle: ");
+int length = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Enter width (vertical) of rectangle: ");
+int width = int.Parse(Console.ReadLine());
+
+for (int i = 1; i <= width; i++)
+{
+    // Checking if it is the end rows or middle rows.
+    if (i == 1 || i == width)
+    {
+        for (int j = 1; j <= length; j++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
+    else
+    {
+        Console.Write("*");
+        for (int j = 2; j <= length - 1; j++)
+        {
+            Console.Write(" ");
+        }
+        Console.Write("*");
+        Console.WriteLine();
+    }
+}

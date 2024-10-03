@@ -1,0 +1,29 @@
+Question 1 : Sum of numbers in pattern (including multiple digit numbers)
+For example input : 100_30_3_1 output : 134
+
+
+string data = "10_200_3_1";
+int sum = 0;
+string temp = " ";
+
+for (int i = 0; i < data.Length; i++)
+{
+    char c = data[i];
+    if (c != '_')
+    {
+        temp += c;
+    }
+    else
+    {
+        sum += int.Parse(temp);
+        temp = " ";
+    }
+}
+
+if(temp != "")
+{
+    sum += int.Parse(temp);
+}
+
+Console.WriteLine(sum);
+
