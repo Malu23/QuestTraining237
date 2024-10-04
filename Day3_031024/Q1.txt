@@ -1,0 +1,48 @@
+Question 1 : Reverse two halves of an array separately.
+For example : 1 2 3 4 5 --> 2 1 3 5 4
+              1 2 3 4 --> 2 1 4 3
+
+Console.WriteLine("Enter the size of the array :");
+int size = int.Parse(Console.ReadLine());
+
+int[] num = new int[size];
+
+for (int i = 0; i < size; i++)
+{
+    Console.WriteLine($"Enter element no {i + 1} :");
+    num[i] = int.Parse(Console.ReadLine());
+}
+Console.WriteLine(string.Join(", ", num));
+
+int[] rev = new int[size];
+int mid = size / 2;
+
+if (size % 2 == 0)
+{
+    for (int i = 0; i < mid; i++)
+    {
+        rev[i] = num[mid - i - 1]; 
+    }
+
+    for (int i = mid; i < size; i++)
+    {
+        rev[i] = num[size - (i - mid) - 1];  
+    }
+}
+
+else
+{
+    for (int i = 0; i < mid; i++)
+    {
+        rev[i] = num[mid - i - 1]; 
+    }
+
+    rev[mid] = num[mid];
+
+    for (int i = mid + 1; i < size; i++)
+    {
+        rev[i] = num[size - (i - mid)]; 
+    }
+}
+
+Console.WriteLine("The reversed array is " + string.Join(", ", rev));            
