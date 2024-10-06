@@ -1,0 +1,36 @@
+
+STRING FUNCTIONS
+
+string text = "   Hello World   ";
+
+text.Length; // length of string including any spaces
+text.Trim().Length // length without leading or trailing spaces
+
+text.ToUpper(); // HELLO WORLD
+text.ToLower(); // hello world
+text.ToUpperInvariant(); // hello world (language rules not considered)
+
+text.Trim(); // no leading or trailing whitespaces
+text.TrimStart(); // no leading whitespaces
+text.TrimEnd(); // no trailing whitespaces
+
+text.Replace(“ “, ”-”); // replace a text or character with another
+text.Remove(1); // removes from index 1 to end of string
+text.Remove(1,4) // removes 4 characters starting from index 1
+
+text.Contains(“Hello”); // true or false
+
+text.StartsWith(“   Hello”); //true or false, case sensitive
+text.EndsWith(“World   “); // true or false
+text.EndsWith(“World    “, StringComparison.OrdinalIgnoreCase); // ignore case 
+
+text.ToCharArray(); // H, e, l, l, o,  , W, o, r, l, d (space also included)
+
+text.Split(‘ ‘); // splitting into an array based on a character or a space
+In the given example there are trailing and leading spaces. The string will be split into elements based on those too.
+text.Split(new char[] {‘ ‘}, StringSplitOptions.RemoveEmptyEntries);
+To avoid having leading and trailing spaces as splitting points.
+The char array inside can have multiple elements which can all be used as splitting points.
+	
+text.Reverse(); // gives IEnumerable output after reversing string hello -> o, l, l, e, h
+
