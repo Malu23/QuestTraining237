@@ -1,0 +1,33 @@
+string input = "HeLlO WoRlD";
+
+string result = ""; 
+
+foreach (var item in input)
+{
+    if (item >= 'a' && item <= 'z')
+    {
+        result += (char)(item - 32);  
+    }
+    else if (item >= 'A' && item <= 'Z')
+    {
+        result += (char)(item + 32); 
+    }
+    else
+    {
+        result += item;  
+    }
+}
+Console.WriteLine(result); 
+
+// ALTERNATE METHOD
+
+string input = "HeLlO WoRlD";
+
+string result = ""; 
+
+foreach (var item in input)
+{
+    char changedItem = char.IsUpper(item) ? char.ToLower(item) : char.ToUpper(item);
+    result += changedItem;
+}
+Console.WriteLine(result); 

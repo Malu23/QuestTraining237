@@ -1,0 +1,21 @@
+var numWords = new string[] {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
+
+string input = "One, 2, Three, Four, 2";
+var inputItems = input.Replace(" ", "").Split(",");
+
+var sb = new StringBuilder();
+foreach (var item in inputItems)
+{
+    if (item.Length <= 2)
+    {
+        int index = int.Parse(item);
+        string text = numWords[index - 1];
+        sb.Append($"{text}, ");
+    }
+    else
+    {
+        sb.Append($"{item}, ");
+    }
+}
+
+Console.WriteLine(sb.ToString()); 

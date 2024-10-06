@@ -1,0 +1,12 @@
+string text = "Malayalam";
+
+var rev = string.Concat(text.Reverse());
+
+if(text.ToLower() == rev.ToLower())
+{
+    Console.WriteLine("Palindrome");
+}
+else
+{
+    Console.WriteLine("Not palindrome");
+}
