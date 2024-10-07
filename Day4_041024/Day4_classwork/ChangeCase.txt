@@ -31,3 +31,4 @@ foreach (var item in input)
     result += changedItem;
 }
 Console.WriteLine(result); 
+

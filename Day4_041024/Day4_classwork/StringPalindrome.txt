@@ -10,3 +10,4 @@ else
 {
     Console.WriteLine("Not palindrome");
 }
+
