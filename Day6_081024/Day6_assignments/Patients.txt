@@ -1,0 +1,34 @@
+CREATE TABLE patients (
+  id INT PRIMARY KEY IDENTITY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  gender VARCHAR(10) NOT NULL CHECK (gender IN ('M', 'F', 'Other')),
+  age INT CHECK (age > 0 AND age < 120), 
+  phone_number VARCHAR(20),
+  email VARCHAR(100) UNIQUE,
+  created_at DATETIME2 DEFAULT GETDATE() 
+);
+
+CREATE TABLE appointments (
+    id INT IDENTITY PRIMARY KEY,
+    patient_id INT NOT NULL,
+    appointment_date DATE CHECK (appointment_date >= GETDATE()),
+    appointment_time TIME,
+    reason_for_visit VARCHAR(200) NOT NULL,
+    doctor_name VARCHAR(100) NOT NULL,
+    created_at DATETIME2 DEFAULT GETDATE()
+);
+
+INSERT INTO patients (first_name, last_name, gender, age, phone_number, email) VALUES
+('John', 'Doe', 'M', 30, '123-456-7890', 'john.doe@example.com'),
+('Jane', 'Smith', 'F', 28, '234-567-8901', 'jane.smith@example.com'),
+('Alex', 'Johnson', 'Other', 45, '345-678-9012', 'alex.johnson@example.com'),
+('Emily', 'Davis', 'F', 50, '456-789-0123', 'emily.davis@example.com'),
+('Michael', 'Brown', 'M', 60, '567-890-1234', 'michael.brown@example.com');
+
+INSERT INTO appointments (patient_id, appointment_date, appointment_time, reason_for_visit, doctor_name) VALUES
+(1, '2024-10-15', '10:00:00', 'Routine check-up', 'Dr. Smith'),
+(2, '2024-10-16', '11:30:00', 'Flu symptoms', 'Dr. Jones'),
+(3, '2024-10-17', '14:00:00', 'Follow-up consultation', 'Dr. Brown'),
+(4, '2024-10-18', '09:00:00', 'Allergy testing', 'Dr. White'),
+(5, '2024-10-19', '15:00:00', 'Skin rash', 'Dr. Green');

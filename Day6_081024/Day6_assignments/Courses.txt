@@ -1,0 +1,31 @@
+CREATE TABLE courses (
+  enrollment_id INT PRIMARY KEY IDENTITY,
+  course_id INT NOT NULL,
+  course_name VARCHAR(100) NOT NULL,
+  course_fee INT NOT NULL,
+  student_id INT
+);
+
+INSERT INTO courses (course_id, course_name, course_fee, student_id) VALUES
+(101, 'Mathematics', 500, 1),
+(101, 'Mathematics', 500, 2),
+(101, 'Mathematics', 500, 3),
+(102, 'Physics', 600, 2),
+(102, 'Physics', 600, 4),
+(103, 'Biology', 550, 3),
+(103, 'Biology', 550, 5),
+(104, 'History', 450, NULL),  
+(104, 'History', 450, NULL);  
+
+SELECT course_name, COUNT(student_id) AS student_count 
+FROM courses
+GROUP BY course_name;
+
+SELECT course_name, SUM(course_fee) AS total_fee_collected
+FROM courses
+GROUP BY course_name;
+
+SELECT TOP 1 course_name, COUNT(student_id) AS student_count 
+FROM courses
+GROUP BY course_name
+ORDER BY student_count DESC;
