@@ -1,0 +1,125 @@
+CREATE TABLE student (
+    student_id INT PRIMARY KEY IDENTITY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    dob DATE,
+);
+
+INSERT INTO student (first_name, last_name, dob) VALUES
+  ('John', 'Doe', '2000-05-10'),
+  ('Jane', 'Smith', '2001-08-15'),
+  ('Alex', 'Brown', '1999-11-20'),
+  ('Emily', 'Johnson', '2000-02-25'),
+  ('Chris', 'Lee', '2002-01-10');
+
+CREATE TABLE subject (
+    subject_code INT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO subject (subject_code, subject_name) VALUES
+  (101, 'Mathematics'),
+  (102, 'Physics'),
+  (103, 'Chemistry'),
+  (104, 'Biology'),
+  (105, 'History');
+  
+CREATE TABLE exam (
+    exam_id INT PRIMARY KEY IDENTITY,
+    min_mark INT,
+    max_mark INT
+);
+
+INSERT INTO exam (min_mark, max_mark) VALUES
+  (0, 100),
+  (0, 100),
+  (0, 50),
+  (0, 50),
+  (0, 100);
+
+CREATE TABLE marks (
+    mark_id INT PRIMARY KEY IDENTITY,
+    student_id INT NOT NULL,
+    subject_code INT NOT NULL,
+    exam_id INT NOT NULL,
+    mark INT DEFAULT 0,
+    
+  	CONSTRAINT FK_student_id 
+FOREIGN KEY (student_id) REFERENCES student(student_id),
+    
+  	CONSTRAINT FK_subject_code
+    FOREIGN KEY (subject_code) REFERENCES subject(subject_code),
+  
+    CONSTRAINT FK_exam_id
+    FOREIGN KEY (exam_id) REFERENCES exam(exam_id)
+);
+
+INSERT INTO marks (student_id, subject_code, exam_id, mark) VALUES
+  (1, 101, 1, 85),  
+  (2, 102, 2, 90),   
+  (3, 102, 3, 45),  
+  (4, 104, 1, 70),  
+  (5, 105, 4, 35);  
+
+
+# 1. Display all marks
+
+SELECT 
+	student.student_id AS student_id,
+    subject.subject_code AS subject_code,
+    subject.subject_name,
+    exam.exam_id AS exam_id,
+    mark
+FROM 
+    marks
+INNER JOIN 
+    student
+ON 
+    marks.student_id = student.student_id
+INNER JOIN 
+    subject 
+ON 
+    marks.subject_code = subject.subject_code
+INNER JOIN 
+    exam 
+ON 
+    marks.exam_id = exam.exam_id;
+
+# 2. If subject name is given fetch all marks
+
+SELECT 
+   student.student_id,
+    student.first_name, 
+    student.last_name, 
+    subject.subject_name,
+    subject.subject_code, 
+    marks.exam_id,
+    marks.mark
+FROM 
+    marks
+INNER JOIN 
+    student ON marks.student_id = student.student_id
+INNER JOIN 
+    subject ON marks.subject_code = subject.subject_code
+WHERE 
+    subject.subject_name = ‘Physics’;
+
+# 3. If student ID is given fetch all exams attended
+
+SELECT 
+	student.student_id,
+    student.first_name, 
+    student.last_name, 
+    exam.exam_id,
+    marks.subject_code, 
+    marks.mark, 
+    exam.max_mark
+FROM 
+    marks
+INNER JOIN 
+    student ON marks.student_id = student.student_id
+INNER JOIN 
+    exam ON marks.exam_id = exam.exam_id
+WHERE 
+    student.student_id = 3;
+

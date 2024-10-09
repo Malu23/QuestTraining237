@@ -1,0 +1,136 @@
+## TYPES OF QUERIES
+
+1. Data Definition Language (DDL)
+   - Use: DDL is used to define, modify, and delete database structures.
+   - DDL Commands:
+     1. CREATE: Used to create a new table or database.
+          CREATE TABLE students (
+              id INT PRIMARY KEY,
+              name VARCHAR(50),
+              age INT
+          );
+
+     2. ALTER: Used to modify an existing database structure.
+          ALTER TABLE students ADD email VARCHAR(100);
+
+     3. DROP: Used to delete tables or databases.
+          DROP TABLE students;
+
+     4. TRUNCATE: Used to delete all rows from a table without logging the individual row deletions.
+          TRUNCATE TABLE students;
+
+2. Data Manipulation Language (DML)
+   - Use: DML is used for managing and manipulating data in databases.
+   - DML Commands:
+     1. SELECT: Used to retrieve data from a database.
+          SELECT * FROM students;
+
+     2. INSERT: Used to add new data into a database.
+          INSERT INTO students (id, name, age) VALUES (1, 'John Doe', 20);
+
+     3. UPDATE: Used to modify existing data.
+          UPDATE students SET age = 21 WHERE id = 1;
+
+     4. DELETE: Used to remove data from a database.
+          DELETE FROM students WHERE id = 1;
+
+3. Data Control Language (DCL)
+   - Use: DCL is used to control access to data in the database.
+   - DCL Commands:
+     1. GRANT: Gives user access privileges to the database.
+          GRANT SELECT ON students TO user1;
+
+     2. REVOKE: Takes back user access privileges.
+          REVOKE INSERT ON students FROM user1;
+
+4. Transaction Control Language (TCL)
+   - Use: TCL is used to manage transactions in a database.      
+   - TCL Commands:
+     1.COMMIT: Saves all the changes made in the current transaction.
+          COMMIT;
+
+     2.ROLLBACK: Undoes changes made in the current transaction if an error occurs.
+          ROLLBACK;
+
+     3.SAVEPOINT: Sets a point within a transaction to which you can later roll back.
+          SAVEPOINT savepoint_name;
+
+     4.SET TRANSACTION: Configures the properties of the current transaction.
+          SET TRANSACTION [READ ONLY | READ WRITE];
+
+
+5. Data Query Language (DQL) 
+   - Use: Used primarily for querying and retrieving data from a database. 
+   - It is a subset of SQL (Structured Query Language).
+   - DQL Commands:
+     1.SELECT : Used to select columns from one or more tables.
+          SELECT column1_name, column2_name FROM table_name;
+
+     2.FROM : Specifies the table from which to retrieve the data.
+          SELECT column1_name, column2_name FROM table_name;
+
+     3.WHERE : A clause used to filter records based on specified conditions.
+          SELECT * FROM Employees
+          WHERE Department = 'Sales';
+          This query selects all columns from the Employees table where the Department is 'Sales'.
+
+     4.ORDER BY: Used to sort the result set in ascending or descending order.
+          SELECT * FROM Employees
+          ORDER BY Salary DESC;
+          This query selects all columns from the Employees table and sorts the result set by the Salary column in descending order.
+
+     5.GROUP BY : Used to group rows that have the same values in specified columns into summary rows.
+          SELECT column1, aggregate_function(column2)
+          FROM table_name
+          GROUP BY column1;
+
+     6.HAVING : A clause used to filter groups based on conditions, often used with aggregate functions.
+          SELECT column1, aggregate_function(column2)
+          FROM table_name
+          GROUP BY column1
+          HAVING condition;
+
+
+## SOME OTHER COMMON QUERIES
+
+1. AGGREGATE FUNCTIONS
+- Aggregate functions perform calculations on a set of values and return a single value. 
+- Common aggregate functions include SUM, COUNT, AVG, MIN, and MAX.
+
+    1. SUM:
+        SELECT SUM(Salary) FROM Employees;
+        This returns the total sum of the Salary column in the Employees table.
+
+    2. COUNT:
+        SELECT COUNT(*) FROM Employees;
+        This returns the total number of rows in the Employees table.
+
+    3. AVG:
+        SELECT AVG(Salary) FROM Employees;
+        This returns the average salary from the Employees table.
+
+    4. MIN:
+        SELECT MIN(Salary) FROM Employees;
+        This returns the minimum value in the Salary column from the Employees table.
+
+    5. MAX:
+        SELECT MAX(Salary) FROM Employees;
+        This returns the maximum value in the Salary column from the Employees table.
+
+2. DISTINCT
+- The DISTINCT keyword is used in SQL to return only distinct (unique) values within a column. 
+- It eliminates duplicate values from the result set.
+    SELECT DISTINCT Department FROM Employees;
+    This query selects unique department names from the Employees table, removing any duplicate values.
+
+3. CREATE INDEX
+- CREATE INDEX is used to speed up the retrieval of data from a database table. 
+- Indexes can be created on one or more columns of a table.
+    CREATE INDEX idx_salary ON Employees(Salary);
+    This creates an index named idx_salary on the Salary column of the Employees table. This can make queries that search or sort by Salary much faster.
+
+
+
+
+
+

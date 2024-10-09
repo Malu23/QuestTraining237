@@ -1,0 +1,36 @@
+## CHECKPOINTS
+
+- A checkpoint is a mechanism in database management systems that saves the current state of the database to persistent storage. 
+- It acts as a synchronization point to ensure data consistency and durability.
+
+## PURPOSE OF CHECKPOINTS
+
+    1.Data Recovery
+    2.Performance Improvement
+    3.Transaction Management
+
+## TYPES OF CHECKPOINTS
+
+    1.Automatic Checkpoints:
+    - Automatically triggered by the DBMS based on specific criteria (e.g., time intervals or log file sizes).
+
+    2.Manual Checkpoints:
+    - Initiated by database administrators or users using specific commands, allowing for greater control over when the checkpoint occurs.
+
+    3.Incremental Checkpoints:
+    - Only the changes made since the last checkpoint are recorded, reducing the amount of data that needs to be written to disk.
+
+    4.Full Checkpoints:
+    - A complete snapshot of the database is taken, which can require more time and resources than incremental checkpoints.
+
+
+## IMPORTANCE OF CHECKPOINTS
+
+    1.Ensures Data Integrity: 
+    - Checkpoints help maintain a consistent database state, ensuring that data is reliable and can be trusted after recovery.
+    
+    2.Reduces Recovery Time: 
+    - In the event of a crash, checkpoints allow the system to recover more quickly by reducing the amount of transaction log data that must be processed.
+    
+    3.Facilitates Concurrency Control: 
+    - Checkpoints help manage concurrent transactions, ensuring that changes made by one transaction do not affect others inappropriately.

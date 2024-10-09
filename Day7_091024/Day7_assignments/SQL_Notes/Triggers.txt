@@ -1,0 +1,40 @@
+## TRIGGERS
+
+- A trigger is a special type of stored procedure in a database that automatically executes (or "fires") in response to specific events on a particular table or view. Triggers are used to enforce business rules, maintain data integrity, and automate system tasks without requiring direct user intervention.
+
+```sql
+CREATE TRIGGER after_employee_insert
+AFTER INSERT ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO employee_audit (employee_id, action, action_date)
+    VALUES (NEW.employee_id, 'INSERT', NOW());
+END;
+```
+- In this example, the trigger `after_employee_insert` is defined to execute after a new row is inserted into the `employees` table.
+- It inserts a record into the `employee_audit` table, capturing the `employee_id`, the action taken (in this case, 'INSERT'), and the current timestamp.
+
+## KEY FEATURES OF TRIGGERS
+
+1. Automatic Execution: Triggers are invoked automatically when specified events occur, such as `INSERT`, `UPDATE`, or `DELETE` operations on a table.
+
+2. Row-Level or Statement-Level: Triggers can operate at the row level, where they execute once for each affected row, or at the statement level, where they execute once for the entire operation.
+
+3. Before and After Triggers: 
+   - BEFORE Trigger: Executes before the triggering event (e.g., before an `INSERT` or `UPDATE`).
+   - AFTER Trigger: Executes after the triggering event.
+
+4. Cascading Triggers: In some cases, a trigger can cause other triggers to fire, leading to a chain reaction. This can be useful but may also lead to complex interdependencies that can be difficult to manage.
+
+## COMMON USES OF TRIGGERS
+
+- Data Validation: Ensuring that data meets specific criteria before it is inserted or updated.
+- Auditing: Automatically logging changes to data for auditing purposes (e.g., storing old values when an update occurs).
+- Enforcing Referential Integrity: Ensuring that changes in one table do not violate relationships with another table.
+- Complex Business Logic: Implementing rules that can't be easily enforced through constraints.
+
+## DEMERITS OF TRIGGERS
+
+- Performance Impact: Triggers can slow down performance if they are complex or if they execute frequently, so they should be used judiciously.
+- Complexity: Excessive use of triggers can lead to complex systems that are hard to debug and maintain.
+

@@ -1,0 +1,42 @@
+## VIEWS
+
+- A view is a virtual table in SQL that is based on the result of a SELECT query. 
+- It does not store data physically but provides a way to present data from one or more tables.
+
+## USE
+
+- Views are used to:
+  - Simplify complex queries.
+  - Provide a layer of security by restricting access to specific rows or columns.
+  - Present data in a specific format or structure.
+
+## CREATING A VIEW
+
+  CREATE VIEW student_view AS
+  SELECT first_name, last_name, age
+  FROM students
+  WHERE age >= 18;
+
+- Once a view is created, you can use it in SELECT statements just like a regular table.
+    SELECT * FROM student_view;
+
+## UPDATING A VIEW
+
+- Some views can be updated if they meet certain conditions.
+    UPDATE student_view SET age = 21 WHERE first_name = 'John';
+
+## DROPPING A VIEW
+
+- To remove a view, use the DROP VIEW statement:
+    DROP VIEW view_name;
+
+## ADVANTAGES OF VIEWS
+
+- Simplicity: Simplifies complex SQL queries by encapsulating them in a view.
+- Security: Allows users to access specific data without exposing the entire table.
+- Reusability: Views can be reused in multiple queries.
+
+## DISADVANTAGES OF VIEWS
+
+- Performance: Views can lead to performance issues if they are complex or if they involve many joins.
+- Limited Functionality: Not all views are updatable, and some operations may be restricted.

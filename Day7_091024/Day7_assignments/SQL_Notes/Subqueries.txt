@@ -1,0 +1,47 @@
+## SUBQUERY
+
+- A subquery is a query nested inside another SQL query. 
+- It is used to retrieve data that will be used in the main query, allowing for more complex data retrieval. 
+- Subqueries can be found in various clauses such as `SELECT`, `WHERE`, and `FROM`.
+
+## TYPES OF SUBQUERIES
+
+1. Single-Row Subquery: 
+    - Returns a single row and can be used with comparison operators such as `=`, `<`, `>`, etc.
+
+     ```sql
+     SELECT employee_id, first_name 
+     FROM employees 
+     WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Sales');
+     ```
+
+2. Multi-Row Subquery: 
+    - Returns multiple rows and is used with operators such as `IN`, `ANY`, or `ALL`.
+
+     ```sql
+     SELECT first_name 
+     FROM employees 
+     WHERE department_id IN (SELECT department_id FROM departments WHERE location_id = 1000);
+     ```
+
+3. Correlated Subquery: 
+    - A subquery that references columns from the outer query. 
+    - It is executed once for each row processed by the outer query.
+    
+     ```sql
+     SELECT e1.first_name, e1.salary 
+     FROM employees e1 
+     WHERE e1.salary > (SELECT AVG(e2.salary) FROM employees e2 WHERE e1.department_id = e2.department_id);
+     ```
+
+## MERITS OF SUBQUERIES
+
+- Modularity: Break down complex queries into manageable parts.
+- Readability: Improve the clarity of the SQL statements.
+- Data Retrieval: Retrieve data that would be difficult to obtain with a single query.
+
+## DEMERITS OF SUBQUERIES
+
+- Subqueries can affect performance, especially if they return large result sets.
+
+
