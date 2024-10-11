@@ -1,0 +1,87 @@
+## DICTIONARY FUNCTIONS
+
+1. Add()
+   Adds a key-value pair to the dictionary.
+   Example:
+   Dictionary<int, string> dict = new Dictionary<int, string>();
+   dict.Add(1, "One");  // Dictionary: {1: "One"}
+
+2. Clear()
+   Removes all key-value pairs from the dictionary.
+   Example:
+   dict.Clear();  // Dictionary: {}
+
+3. ContainsKey()
+   Checks if the dictionary contains a specific key.
+   Example:
+   bool hasKey = dict.ContainsKey(1);  // false
+
+4. ContainsValue()
+   Checks if the dictionary contains a specific value.
+   Example:
+   bool hasValue = dict.ContainsValue("One");  // false
+
+5. Count //property
+   Returns the number of key-value pairs.
+   Example:
+   int count = dict.Count;  // 0
+
+6. Remove()
+   Removes a key-value pair by key.
+   Example:
+   dict.Remove(1);  // Dictionary: {}
+
+7. TryGetValue()
+   Tries to get the value associated with a key.
+   Example:
+   dict.TryGetValue(1, out string value);  // value: null
+
+8. Keys
+   Returns a collection of keys.
+   Example:
+   ICollection<int> keys = dict.Keys;  // []
+
+9. Values
+   Returns a collection of values.
+   Example:
+   ICollection<string> values = dict.Values;  // []
+
+10. Item[] (Indexer)
+    Accesses a value by key.
+    Example:
+    dict[1] = "New Value";  // {1: "New Value"}
+
+11. ToList()
+    Converts the dictionary to a list of KeyValuePair objects.
+    Example:
+    List<KeyValuePair<int, string>> list = dict.ToList();
+
+12. Contains()
+    Checks if a key-value pair exists in the dictionary.
+    Example:
+    bool exists = dict.Contains(new KeyValuePair<int, string>(1, "One"));  // false
+
+13. Equals()
+    Checks if two dictionaries are equal.
+    Example:
+    bool areEqual = dict.Equals(new Dictionary<int, string>());  // true
+
+14. Union()
+    Combines two dictionaries.
+    Example:
+    var merged = dict.Union(new Dictionary<int, string> { {2, "Two"} });
+
+15. Intersect()
+    Gets the common key-value pairs between two dictionaries.
+    Example:
+    var common = dict.Intersect(new Dictionary<int, string> { {1, "One"} });
+
+16. Any()
+    Checks if any key-value pair matches a condition.
+    Example:
+    bool any = dict.Any(kvp => kvp.Key == 1);  // false
+
+17. OrderBy()
+    Orders the dictionary by key or value.
+    Example:
+    var ordered = dict.OrderBy(kvp => kvp.Key).ToList();

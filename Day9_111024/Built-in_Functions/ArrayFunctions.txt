@@ -1,0 +1,181 @@
+## ARRAY FUNCTIONS
+
+1. Length //property
+    Returns the total number of elements in all dimensions of the array.
+    Example:
+    int[] numbers = { 1, 2, 3, 4, 5 };
+    Console.WriteLine(numbers.Length); // Output: 5
+     
+
+2. Rank
+    Returns the number of dimensions in the array.
+    Example:
+    int[,] multiDim = { { 1, 2 }, { 3, 4 } };
+    Console.WriteLine(multiDim.Rank); // Output: 2
+    
+
+3. GetLength(int dimension)
+    Returns the number of elements in the specified dimension of the array.
+    Example:
+    int[,] multiDim = { { 1, 2 }, { 3, 4 } };
+    Console.WriteLine(multiDim.GetLength(0)); // Output: 2 (rows)
+    Console.WriteLine(multiDim.GetLength(1)); // Output: 2 (columns)
+     
+
+4. GetValue(int index)
+    Gets the value at the specified index in the array.
+    Example:
+    int[] numbers = { 10, 20, 30 };
+    Console.WriteLine(numbers.GetValue(1)); // Output: 20
+     
+
+5. SetValue(object value, int index)
+    Sets a value at the specified index in the array.
+    Example:  
+    int[] numbers = { 10, 20, 30 };
+    numbers.SetValue(100, 1);
+    Console.WriteLine(numbers[1]); // Output: 100
+
+6. Clear
+    Sets a range of elements in the array to zero or `null`.
+    Example:
+    int[] numbers = { 1, 2, 3, 4, 5 };
+    Array.Clear(numbers, 1, 2);  // Clears 2 elements starting from index 1
+    Console.WriteLine(numbers[1]); // Output: 0
+     
+
+7.Copy
+    Copies elements from one array to another.
+    Example:     
+    int[] source = { 1, 2, 3 };
+    int[] destination = new int[3];
+    Array.Copy(source, destination, 3);
+    Console.WriteLine(destination[0]); // Output: 1
+     
+
+8. Sort
+    Sorts the elements of the array in ascending order.
+    Example:    
+    int[] numbers = { 5, 3, 8, 1 };
+    Array.Sort(numbers);
+    Console.WriteLine(string.Join(", ", numbers)); // Output: 1, 3, 5, 8
+     
+
+9. Reverse
+    Reverses the order of the elements in the array.
+    Example:     
+    int[] numbers = { 1, 2, 3, 4 };
+    Array.Reverse(numbers);
+    Console.WriteLine(string.Join(", ", numbers)); // Output: 4, 3, 2, 1
+    
+
+10.IndexOf
+    Finds the index of the first occurrence of a specified value in the array.
+    Example:     
+    int[] numbers = { 1, 2, 3, 4, 2 };
+    int index = Array.IndexOf(numbers, 2);
+    Console.WriteLine(index); // Output: 1
+    
+
+11.LastIndexOf
+    Finds the index of the last occurrence of a specified value in the array.
+    Example:
+    int[] numbers = { 1, 2, 3, 4, 2 };
+    int index = Array.LastIndexOf(numbers, 2);
+    Console.WriteLine(index); // Output: 4
+    
+
+12.Exists
+    Checks if at least one element in the array matches a condition.
+    Example:    
+    int[] numbers = { 1, 2, 3, 4 };
+    bool exists = Array.Exists(numbers, n => n == 3);
+    Console.WriteLine(exists); // Output: True
+     
+
+13. Find
+    Returns the first element that matches a condition.
+    Example:    
+    int[] numbers = { 1, 2, 3, 4 };
+    int result = Array.Find(numbers, n => n > 2);
+    Console.WriteLine(result); // Output: 3
+    
+
+14.FindAll
+    Returns all elements that match a condition.
+    Example:
+    int[] numbers = { 1, 2, 3, 4 };
+    int[] results = Array.FindAll(numbers, n => n > 2);
+    Console.WriteLine(string.Join(", ", results)); // Output: 3, 4
+    
+
+15.FindIndex
+    Returns the index of the first element that matches a condition.
+    Example:
+    int[] numbers = { 1, 2, 3, 4 };
+    int index = Array.FindIndex(numbers, n => n > 2);
+    Console.WriteLine(index); // Output: 2
+     
+
+ADD VS ADDRANGE
+
+   Both `Add` and `AddRange` are methods used to add elements to a collection like a `List<T>`, but they differ in how they work:
+
+Add
+- Adds a single element to the list.
+- list.Add(item)
+- Example:
+   
+   List<int> numbers = new List<int>();
+   numbers.Add(1);  // Adds a single element to the list
+   Console.WriteLine(numbers.Count);  // Output: 1
+   
+AddRange
+- Adds multiple elements (a collection of items) to the list at once.
+- list.AddRange(collection)`
+- Example:
+   
+   List<int> numbers = new List<int>();
+   numbers.AddRange(new int[] { 1, 2, 3 });  // Adds multiple elements to the list
+   Console.WriteLine(numbers.Count);  // Output: 3
+  
+
+
+- Add adds one element at a time, while **AddRange** adds multiple elements at once.
+- Add is suitable for adding individual items, while **AddRange** is more efficient for adding a batch of items.
+
+
+
+Here's a simple explanation of `Count` and `LongCount` with examples:
+
+Count
+- Count` tells you how many items are in a collection (like a list or array).
+- Use `Count` when the number of items is small to moderate (less than 2 billion).
+- Returns An `int` (whole number).
+  
+Example
+
+List<int> numbers = new List<int> { 1, 2, 3, 4 };
+Console.WriteLine(numbers.Count);  // Output: 4
+
+Here, `numbers.Count` returns `4` because there are four elements in the list.
+
+---
+
+LongCount
+- LongCount` is just like `Count`, but it's used when you have a **very large** number of items (more than 2 billion).
+- Use `LongCount` when the collection could potentially have more than 2 billion items.
+- returns `long` (larger whole number that can hold more than `Count`).
+  
+Example:
+
+List<int> numbers = new List<int> { 1, 2, 3, 4 };
+Console.WriteLine(numbers.LongCount());  // Output: 4
+
+Here, `numbers.LongCount() also returns `4` because the list has four elements, but it can handle very large collections.
+
+Simple Difference:
+--Use `Count when you're working with collections that aren't too large.
+--Use LongCount when you're working with very large collections, especially if the number of items could go beyond 2 billion. 
+
+For most everyday uses,Count` is enough unless you're dealing with massive data sets.

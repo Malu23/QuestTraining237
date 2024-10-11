@@ -1,0 +1,140 @@
+1. Length
+    Gets the length of the string (number of characters).
+    Example: 
+    string str = "Hello";
+    int length = str.Length;  // Output: 5
+
+
+2.ToUpper()
+    Converts all characters in the string to uppercase.
+    Example: 
+    string str = "hello";
+    string upperStr = str.ToUpper();  // Output: "HELLO"
+
+
+3.ToLower()
+    Converts all characters in the string to lowercase.
+    Example:  
+    string str = "HELLO";
+    string lowerStr = str.ToLower();  // Output: "hello"
+
+
+4.Substring(int startIndex)
+    Extracts a substring starting at the specified index.
+    Example:  
+    string str = "Hello, World!";
+    string subStr = str.Substring(7);  // Output: "World!"
+
+
+5.Substring(int startIndex, int length)
+    Extracts a substring starting at the specified index with a given length.
+    Example:  
+    string str = "Hello, World!";
+    string subStr = str.Substring(7, 5);  // Output: "World"
+
+
+6.IndexOf(string value)
+    Returns the index of the first occurrence of a specified substring. If not found, it returns -1.
+    Example:  
+    string str = "Hello, World!";
+    int index = str.IndexOf("World");  // Output: 7
+
+
+7.LastIndexOf(string value)
+    Returns the index of the last occurrence of a specified substring.
+    Example:  
+    string str = "Hello, World! Hello!";
+    int lastIndex = str.LastIndexOf("Hello");  // Output: 13
+
+
+8.Contains(string value)*
+    Checks whether a string contains a specified substring and returns a bool.
+    Example:  
+    string str = "Hello, World!";
+    bool contains = str.Contains("World");  // Output: true
+
+
+9.Replace(string oldValue, string newValue)
+    Replaces all occurrences of a specified string with another string.
+    Example:  
+    string str = "Hello, World!";
+    string newStr = str.Replace("World", "C#");  // Output: "Hello, C#!"
+
+
+10.Trim()
+    Removes all leading and trailing whitespace characters.
+    Example:  
+    string str = "  Hello, World!  ";
+    string trimmedStr = str.Trim();  // Output: "Hello, World!"
+
+
+11.TrimStart()
+    Removes all leading (starting) whitespace characters.
+    Example:  
+    string str = "  Hello, World!";
+    string trimmedStartStr = str.TrimStart();  // Output: "Hello, World!"
+
+
+12.TrimEnd()*
+    Removes all trailing (ending) whitespace characters.
+    Example:  
+    string str = "Hello, World!  ";
+    string trimmedEndStr = str.TrimEnd();  // Output: "Hello, World!"
+
+
+13.Split(char separator)
+    Splits a string into an array of substrings based on a specified separator character.
+    Example:  
+    string str = "Apple, Banana, Cherry";
+    string[] fruits = str.Split(',');  // Output: ["Apple", " Banana", " Cherry"]
+
+
+14. Join(string separator, string[] values)
+    Concatenates an array of strings into a single string with a specified separator.
+    Example:  
+    string[] words = { "Apple", "Banana", "Cherry" };
+    string joined = string.Join(", ", words);  // Output: "Apple, Banana, Cherry"
+
+
+15.StartsWith(string value)
+    Determines whether a string starts with a specified substring.
+    Example:  
+    string str = "Hello, World!";
+    bool startsWithHello = str.StartsWith("Hello");  // Output: true
+
+16.EndsWith(string value)
+    Determines whether a string ends with a specified substring.
+    Example:  
+    string str = "Hello, World!";
+    bool endsWithWorld = str.EndsWith("World!");  // Output: true
+
+
+17.IsNullOrEmpty(string value)
+    Checks whether a string is null or an empty string.
+    Example:  
+    string str = "";
+    bool isEmpty = string.IsNullOrEmpty(str);  // Output: true
+
+
+18. IsNullOrWhiteSpace(string value)
+    Checks whether a string is null, an empty string, or contains only white-space characters.
+    Example:  
+    string str = "   ";
+    bool isWhitespace = string.IsNullOrWhiteSpace(str);  // Output: true
+
+
+19. Format(string format, object[] args)
+    Formats a string by replacing placeholders with the specified arguments.
+    Example:  
+    string formatted = string.Format("My name is {0} and I am {1} years old.", "John", 30);  
+    // Output: "My name is John and I am 30 years old."
+
+
+20. ToCharArray()
+    Converts the string to a character array.
+    Example:  
+    string str = "Hello";
+    char[] chars = str.ToCharArray();  // Output: ['H', 'e', 'l', 'l', 'o']
+
+
+
