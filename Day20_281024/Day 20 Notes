@@ -1,0 +1,110 @@
+## WEB APPLICATIONS
+    - There is no need for any installations.
+    - Requires internet.
+    - For updates, deploy them to the server.
+    - Runs inside a web browser.
+    - The same copy of one web app can be used for multiple users.
+
+## DESKTOP APPLICATIONS
+    - They need to be installed.
+    - No Internet connection is mandatory.
+    - For updates, deploy them manually in each user’s machine.
+    - It can be accessed from the machine in which it is installed.
+    - Single-user system.
+
+## IP ADDRESS
+    - Uniquely identifies a machine on a network.
+    - Types: Pv4, IPv6
+
+## IPv4
+    - eg: 192.168.1.1
+    - It has 4 parts, each with an 8-bit value of range 0 - 255.
+    - 32-bit address.
+    - It has a limitation of 4.3 billion unique addresses.
+
+## IPv6
+    - eg: 2001:odb9:85a3:0000:0000:8a2e:0370:7334
+    - It has 8 groups, each with a 128-bit value.
+    - Represented as hexadecimal digits.
+
+## When we type a domain name in a browser, it searches for the domain name in DNS(Domain Name System) and gets the corresponding IP address. It is this IP address we connect to.
+ 
+## ROLE OF DOMAIN NAME
+    - Easier to remember than an IP address.
+    - In the case of dynamic IP, you won’t have to track or change IP addresses manually.
+
+## STATIC IP
+    - Never changes.
+    - Used for hosting websites, servers, VPNs, and remote access.
+    - More expensive.
+    - Easier for remote access.
+    - More vulnerable to attacks.
+
+## DYNAMIC IP
+    - Changes periodically (assigned by DHCP - Dynamic Host Control Protocol).
+    - Common for home users, general internet access.
+    - Typically included in standard internet packages.
+    - May require a solution like Dynamic DNS to access remotely.
+    - More secure since IP changes regularly.
+
+## DHCP (Dynamic Host Configuration Protocol)
+    - DHCP is a network protocol used to automatically assign IP addresses and other network configuration settings to devices on a network.
+    - It eliminates the need for manual IP configuration and allows devices to join a network quickly and easily.
+
+## HTTP vs. HTTPS
+    - HTTP: Hyper Text Transfer Protocol.
+    - HTTPS: Hyper Text Transfer Protocol Secured.
+    - HTTPS encrypts the connection; HTTP does not.
+    - HTTPS is used for secure communication (e.g., online banking, shopping, login pages), while HTTP is more commonly used for non-sensitive data (though it's less common now).
+
+## HTML
+    - Hyper Text Markup Language.
+    - To get basic structure type ‘!’ and press Tab.
+
+## SOME IMPORTANT HTML TAGS
+    !DOCTYPE
+        - Declares the document type and version of HTML being used.
+    <html>
+        - Encloses the entire HTML document, acting as the root element.
+    <head>
+        - Contains meta-information about the document (e.g., title, character set).
+    <title>
+        - Sets the title of the webpage, shown in the browser's title bar or tab.
+        - Also, the title is shown as search engine results.
+    <meta>
+        - Provides metadata about the HTML document, such as charset or keywords.
+    <body>
+        - Contains the main content of the HTML document that is visible to users.
+    <p>
+     - Defines a block of text as a paragraph.
+    <h1>, <h2>
+        - Define headings of different levels, with <h1> being the highest (main heading).
+        - One document should only have one <h1> tag.
+        - A proper hierarchy should be maintained. After <h1> do not skip to <h3>.
+    <a>
+        - Creates a hyperlink to link to other webpages or resources.
+    <b>
+        - Brings attention to the element.
+    <u>
+        - Text that is unarticulated and styled differently from normal text.
+    <strong>
+        - Gives strong emphasis to text, semantically marking it as important.
+
+## CSS
+    - Cascading Style Sheets.
+    - Can be connected to HTML file in different ways:
+    - Inline CSS
+    - Internal CSS (Embedded CSS)
+    - External CSS
+
+## TOPICS TO BE FAMILIAR WITH
+    - IP
+    - DNS
+    - TCP and UDP
+    - Reverse Proxy
+    - Port numbers
+    - Protocols like SMTP, HTTP, etc. and their port numbers
+    - HTTP status code
+    - Client-server architecture
+    - CDN
+
