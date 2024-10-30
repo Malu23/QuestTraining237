@@ -1,39 +1,39 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ECommerce  
+namespace ECommerce
 {
-    public class Cart
+    class Cart
     {
-        private List<CartItem> items = new List<CartItem>();
-
-        public void AddItem(CartItem item)
+        private readonly List<CartItem> _items = new List<CartItem>();
+        
+        public void Add(CartItem item)
         {
-            items.Add(item);
-        }
-
-        public void UpdateItem(string name, int quantity)
-        {
-            var item = items.FirstOrDefault(i => i.Name == name);
-            if (item != null)
+            var existingItem = _items.FirstOrDefault(i => i.Name == item.Name);
+            if (existingItem != null)
             {
-                item.Quantity = quantity;
+                existingItem.Quantity += item.Quantity;
+            }
+            else
+            {
+                _items.Add(item);
             }
         }
 
-        public void RemoveItem(string name)
+        public void Remove(string productName)
         {
-            items.RemoveAll(i => i.Name == name);
+            _items.RemoveAll(i => i.Name == productName);
+        }
+        
+        public void Update(string productName, int newQuantity)
+        {
+            var item = _items.FirstOrDefault(i => i.Name == productName);
+            if (item != null)
+            {
+                item.Quantity = newQuantity;
+            }
         }
 
-        public decimal GetTotalWithoutDiscount()
-        {
-            return items.Sum(i => i.GetTotalPrice());
-        }
-
-        public List<CartItem> GetItems()
-        {
-            return items;
-        }
+        public List<CartItem> GetAll() => _items;
     }
 }

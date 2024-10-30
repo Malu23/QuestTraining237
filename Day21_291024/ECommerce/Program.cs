@@ -1,22 +1,27 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Threading;
 
 namespace ECommerce
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
             var cart = new Cart();
-            cart.AddItem(new CartItem("Laptop", 1, 1000));  
-            cart.AddItem(new CartItem("Mouse", 2, 50));     
-
-            Console.WriteLine("Total before discount: " + cart.GetTotalWithoutDiscount());
-
-            IDiscountStrategy discountStrategy = new BuyOneGetOneFree();  
-
+            cart.Add(new CartItem { Name = "Pen", Price = 100, Quantity = 2 });
+            cart.Add(new CartItem { Name = "Diary", Price = 200, Quantity = 3 });
+            cart.Add(new CartItem { Name = "Bag", Price = 300, Quantity = 1 });
+            
+            var discountStrategy = new PercentageDiscountStrategy();
             var billingService = new BillingService(discountStrategy);
-
-            Console.WriteLine("Total after discount: " + billingService.CalculateTotal(cart));
+            var totalAmount = billingService.CalculateTotalAmount(cart.GetAll());
+            
+            Console.WriteLine($"Total amount: {totalAmount}");
+            
+            cart.Update("Pen", 5);
+            totalAmount = billingService.CalculateTotalAmount(cart.GetAll());
+            Console.WriteLine($"Total amount after updating and applying discount: {totalAmount}");
         }
     }
 }
